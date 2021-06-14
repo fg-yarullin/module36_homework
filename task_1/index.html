@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Задание 1</h1>
+    <p class="task">Изобразить с помощью элементов SVG флаги пяти стран: Россия, Франция, Финляндия, Швейцария, Япония.</p>
+    <div class="container">
+        <!--div class="content"-->
+            <div class="flag russia">
+                <svg height="120" width="180">
+                    <!--
+                    <rect
+                        x="0" y="0" width="180" height="120"
+                        style="fill:white; stroke: black; stroke-width: 0.5;"
+                    />
+                    -->
+    
+                    <rect
+                        x=".5" y="0.5" width="179" height="40"
+                        style="fill:rgb(255, 255, 255);"
+                    />
+        
+                    <rect
+                        x=".5" y="40" width="179" height="40"
+                        style="fill:rgb(0, 57, 166);"
+                    />
+                    <rect
+                        x=".5" y="79.5" width="179" height="40"
+                        style="fill:rgb(213, 43, 30);"
+                    />
+                </svg>
+                <label class="country">Россия</label>
+            </div>
+            <div class="flag france">
+                <svg height="120" width="180">   
+                    <rect
+                        x="0" y="0" width="60" height="120"
+                        style="fill:rgb(0,85,164);"
+                    />
+        
+                    <rect
+                        x="60" y="0" width="60" height="120"
+                        style="fill:rgb(255, 255, 255);"
+                    />
+                    <rect
+                        x="120" y="0" width="60" height="120"
+                        style="fill:rgb(239,65,53);"
+                    />
+                </svg>
+                <label class="country">Франция</label>
+            </div>
+        
+            <div class="flag finland">
+                <svg height="120" width="180">
+                    <rect
+                        x="0" y="5" width="180" height="110"
+                    />
+
+                    <rect
+                        x="0" y="5" width="180" height="110"
+                        style="fill:white;"
+                    />
+        
+                    <rect
+                        x=".5" y="45" width="179" height="30"
+                        style="fill:rgb(0 53 128);"
+                    />
+                    <rect
+                        x="50" y="5" width="30" height="110"
+                        style="fill:rgb(0 53 128);"
+                    />
+                </svg>
+                <label class="country">Финляндия</label>
+            </div>
+        
+            <div class="flag switzerland">
+                <svg width="180" height="120">
+                    <rect
+                        x="30" y="0" width="120" height="120"
+                        style="fill:#da291c;"
+                    />
+                    <rect
+                        x="78.75" y="22.5" width="22.5" height="75"
+                        style="fill:white;"
+                    />
+                    <rect
+                        x="52.5" y="48.75" width="75" height="22.5"
+                        style="fill:white;"
+                    />
+                </svg>
+                <label class="country">Швейцария</label>
+            </div>
+    
+            <div class="flag japan">
+                <svg height="120" width="180">
+                    <rect
+                        x="0" y="0" width="180" height="120"
+                        style="fill:white;"
+                    />
+                    <circle fill="#bc002d" cx="90" cy="60" r="36"/>
+                </svg>
+                <label class="country">Япония</label>
+            </div>
+    </div>
+</body>
+</html>
