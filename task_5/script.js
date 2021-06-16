@@ -27,7 +27,6 @@ window.onload = function () {
     };
     websocket.onmessage = function(event) {
         let data = JSON.parse(event.data);
-        console.log(data);
         if (!data.hasOwnProperty('geolocation')) {
             writeToScreen(data, 'in');
         }
@@ -56,8 +55,12 @@ function writeToScreen(message, direction) {
 
 btnSend.addEventListener('click', () => {
   let messageText = message.value;
-  messageText !== '' ? writeToScreen(messageText, 'out', false) : '';
-  websocket.send(JSON.stringify(messageText));
+  if (messageText !== '') {
+    writeToScreen(messageText, 'out');
+    websocket.send(JSON.stringify(messageText));
+  } else {
+      return;
+  } 
 });
 
 btnGeolocation.addEventListener('click', () => {
