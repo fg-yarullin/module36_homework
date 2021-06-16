@@ -111,10 +111,6 @@ body {
 /* << laoder */
 
 #mute {
-    left: 0;
-    top: 0;
-    -padding: calc(86vh / 2);
-    text-align: center;
     display: none;
 }
 #mute.on {
@@ -123,8 +119,7 @@ body {
     align-content: center;
 
     position: absolute;
-    top: 82px;
-    left: 440px; 
+    margin: 54px 0  0 0;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.3);
     height: 600px;
