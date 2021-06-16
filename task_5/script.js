@@ -7,7 +7,7 @@ const mute = document.getElementById('mute');
 
 let websocket;
 
-// document.addEventListener('DOMContentLoaded', async function(event) {
+// document.addEventListener('DOMContentLoaded', async function(event) {});
 window.onload = function () {
     mute.className = 'on';
     mute.innerHTML = '<div class="loader"></div>';
@@ -65,7 +65,7 @@ btnSend.addEventListener('click', () => {
 
 btnGeolocation.addEventListener('click', () => {
     const mapUrl = new URL('https://www.openstreetmap.org');
-    mapUrl.hash = "#map=16/55.7906/49.2486";
+    // mapUrl.hash = "#map=16/55.7906/49.2486";
     writeToScreen(
         `<a class="chat__link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">
             <strong>Гео-локация</strong>
