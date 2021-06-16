@@ -1,26 +1,35 @@
 const wsUri = "wss://echo.websocket.org/";
-const mapUrl = 'https://www.openstreetmap.org/';
-
 const output = document.querySelector(".output");
 const btnSend = document.querySelector('.caht__btn');
 const btnGeolocation = document.querySelector('.caht__geolocation');
-
 const message = document.querySelector('.message')
+const mute = document.getElementById('mute');
 
 let websocket;
 let direction = '';
 
-window.onload = function() {
+// document.addEventListener('DOMContentLoaded', async function(event) {
+window.onload = function () {
+    mute.className = 'on';
+    mute.innerHTML = '<div class="loader"></div>';
+
     websocket = new WebSocket(wsUri);
     websocket.onopen =  function(event) {
         // writeToScreen("CONNECTED", 'in');
+        btnSend.style.visibility = 'visible';
+        btnGeolocation.style.visibility = 'visible';
+        mute.className = '';
+        mute.innerHTML = '';
     };
     websocket.onclose = function(event) {
         // writeToScreen("DISCONNECTED", 'in');
+        btnSend.style.visibility = 'hidden';
+        btnGeolocation.style.visibility = 'hidden';
     };
     websocket.onmessage = function(event) {
-        let data = event.data;
-        if (data !== mapUrl) {
+        let data = JSON.parse(event.data);
+        console.log(data);
+        if (!data.hasOwnProperty('geolocation')) {
             writeToScreen(data, 'in');
         }
         
@@ -50,18 +59,17 @@ function writeToScreen(message, direction) {
 btnSend.addEventListener('click', () => {
   let messageText = message.value;
   messageText !== '' ? writeToScreen(messageText, 'out', false) : '';
-  websocket.send(messageText);
+  websocket.send(JSON.stringify(messageText));
 });
 
 btnGeolocation.addEventListener('click', () => {
-    // console.log(mapUrl);
-    // mapUrl.pathname = "/\#map=16/55.7906/49.2486";
-    // console.log(mapUrl);
+    const mapUrl = new URL('https://www.openstreetmap.org');
+    mapUrl.hash = "#map=16/55.7906/49.2486";
     writeToScreen(
         `<a class="chat__link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">
             <strong>Гео-локация</strong>
         </a>`, 
         'out'
     );
-    websocket.send(mapUrl);
+    websocket.send(JSON.stringify({geolocation: mapUrl}));
 })
