@@ -6,7 +6,6 @@ const message = document.querySelector('.message')
 const mute = document.getElementById('mute');
 
 let websocket;
-let direction = '';
 
 // document.addEventListener('DOMContentLoaded', async function(event) {
 window.onload = function () {
@@ -48,7 +47,6 @@ window.onbeforeunload = function() {
 };
 
 function writeToScreen(message, direction) {
-
     let pre = document.createElement("p");
     pre.style.wordWrap = "break-word";
     pre.innerHTML = message;
